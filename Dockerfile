@@ -1,9 +1,8 @@
-FROM ubuntu:latest
+FROM maven:latest
+
 LABEL authors="bober"
 
 ENTRYPOINT ["top", "-b"]
-
-FROM maven:latest
 
 WORKDIR /app
 
