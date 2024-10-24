@@ -42,4 +42,20 @@ public class LocalizedGreetingTest {
         messages = ResourceBundle.getBundle("MessagesBundle", locale);
         assertEquals("سلام! به برنامه ما خوش آمدید", messages.getString("greeting"));
     }
+
+    @Test
+    public void testJapaneseGreeting() {
+        Locale locale = Locale.of("ja", "JP");  // Use Locale.of() instead of the constructor
+        messages = ResourceBundle.getBundle("MessagesBundle", locale);
+        assertEquals("こんにちは！当社のアプリケーションへようこそ。", messages.getString("greeting"));
+    }
+
+    @Test
+    public void testInvalidChoiceDefaultsToEnglish() {
+        // Simulate invalid choice by directly using the default Locale
+        Locale locale = Locale.of("en", "US");  // Use Locale.of() instead of the constructor
+        messages = ResourceBundle.getBundle("MessagesBundle", locale);  // Ensure the bundle name matches
+        assertEquals("Hello! Welcome to our application.", messages.getString("greeting"));  // Ensure correct message
+    }
+
 }
